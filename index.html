@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stabl: Fitness Footwear Market Insights</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F172A; /* Dark Blue-Gray Background */
+            color: #CBD5E0; /* Light Text Color */
+        }
+        .brand-coral { color: #FF6B6B; }
+        .brand-yellow { color: #FFD166; }
+        .brand-green { color: #06D6A0; }
+        .brand-blue { color: #118AB2; }
+        .brand-dark-text { color: #E2E8F0; } /* Lighter color for headings on dark background */
+
+        .bg-brand-coral { background-color: #FF6B6B; }
+        .bg-brand-yellow { background-color: #FFD166; }
+        .bg-brand-green { background-color: #06D6A0; }
+        .bg-brand-blue { background-color: #118AB2; }
+        .bg-brand-dark-header { background-color: #08101C; } /* Very Dark Blue for Header */
+        
+        .border-brand-coral { border-color: #FF6B6B; }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-height: 400px;
+            }
+        }
+        .section-card {
+            background-color: #1A202C; /* Darker Card Background */
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.15); /* Darker shadow */
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .big-stat-value {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .big-stat-label {
+            font-size: 1.125rem;
+            margin-top: 0.5rem;
+        }
+        .diagram-item {
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Light border for dark theme */
+            background-color: #2D3748; /* Slightly lighter dark background for diagram items */
+        }
+        .stabl-glow {
+            text-shadow: 0 0 3px #E2E8F0, 0 0 6px #E2E8F0, 0 0 9px #E2E8F0; /* Reduced glow */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-brand-dark-header text-white py-8 px-4 text-center">
+        <h1 class="text-4xl font-bold stabl-glow">STABL</h1>
+        <p class="text-xl mt-2 brand-dark-text">Substance, Stability, Purpose, Strength.</p>
+        <div class="mt-4 text-sm brand-dark-text">
+            <p>Website: <a href="https://stabl.netlify.app" target="_blank" class="underline hover:text-brand-yellow">Stabl - Grounded for Greatness</a></p>
+            <p>Pitch Deck: <a href="https://ahmadx614.github.io/StablPitchDeck/" target="_blank" class="underline hover:text-brand-yellow font-semibold">STABL Pitch Deck</a></p>
+            <p>Email: <a href="mailto:wearstabl@gmail.com" class="underline hover:text-brand-yellow">wearstabl@gmail.com</a></p>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="global-market" class="section-card">
+            <h2 class="text-2xl font-bold brand-dark-text mb-4 text-center">The Big Picture: Global Footwear Market Surge</h2>
+            <p class="text-center mb-6">The global footwear market is experiencing robust growth, driven by rising disposable incomes and increased health consciousness. This creates a fertile ground for innovative brands.</p>
+            <div class="chart-container">
+                <canvas id="globalFootwearMarketChart"></canvas>
+            </div>
+            <div class="mt-6 text-center">
+                <p class="big-stat-value brand-coral">5.9%</p>
+                <p class="big-stat-label">Projected Global Footwear Market CAGR (2024-2030)</p>
+            </div>
+            <p class="mt-4 text-sm text-center">Key drivers include evolving athleisure trends and technological advancements in design and materials, pushing the market towards a projected value of over $570 billion by 2030.</p>
+        </section>
+
+        <section id="india-market" class="section-card">
+            <h2 class="text-2xl font-bold brand-dark-text mb-4 text-center">Zooming In: India's Athletic Footwear Boom</h2>
+            <p class="text-center mb-6">India's athletic footwear market is not just growing; it's set to lead the Asia Pacific region, showcasing immense potential for specialized and performance-oriented brands.</p>
+            <div class="chart-container">
+                <canvas id="indiaAthleticMarketChart"></canvas>
+            </div>
+            <div class="mt-6 text-center">
+                <p class="big-stat-value brand-green">6.4%</p>
+                <p class="big-stat-label">Projected Indian Athletic Footwear CAGR (2023-2030)</p>
+            </div>
+            <p class="mt-4 text-sm text-center">Increased health awareness, rising sports participation, and the rapid expansion of e-commerce are fueling this impressive growth, with the market expected to surpass $11.3 billion by 2030.</p>
+        </section>
+
+        <section id="specialized-segments" class="section-card">
+            <h2 class="text-2xl font-bold brand-dark-text mb-4 text-center">The Sweet Spot: Specialized Segments Outpacing Growth</h2>
+            <p class="text-center mb-6">While the overall market is healthy, specialized niches within fitness footwear, such as weightlifting and training shoes, are demonstrating even more dynamic growth rates. The bar chart below illustrates these accelerated growth rates.</p>
+            <div class="chart-container">
+                <canvas id="specializedSegmentsCAGRChart"></canvas>
+            </div>
+            <p class="mt-4 text-sm text-center">This accelerated growth in specialized segments, driven by focused consumer needs in activities like strength training and CrossFit, highlights a significant opportunity for brands like Stabl that cater to specific performance demands.</p>
+        </section>
+
+        <section id="fitness-phenomenon" class="section-card">
+            <h2 class="text-2xl font-bold brand-dark-text mb-4 text-center">The Fitness Phenomenon: Global & Indian Trends</h2>
+            <p class="text-center mb-6">The global gym craze and athleisure market are rapidly expanding, creating a massive addressable market for fitness-focused products. This growth is further fueled by the rise of homegrown fitness influencers and an accelerating functional training trend.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+                <div class="text-center p-6 rounded-lg diagram-item">
+                    <p class="big-stat-value brand-yellow">200M+</p>
+                    <p class="big-stat-label">Global Gym-Goers</p>
+                    <p class="text-xs mt-1">A vast and growing active consumer base.</p>
+                </div>
+                <div class="text-center p-6 rounded-lg diagram-item">
+                    <p class="big-stat-value brand-blue">30M+</p>
+                    <p class="big-stat-label">Gym-Goers in India</p>
+                    <p class="text-xs mt-1">India's fitness industry sees exponential growth.</p>
+                </div>
+                <div class="text-center p-6 rounded-lg diagram-item md:col-span-2">
+                    <p class="big-stat-value brand-coral">27%</p>
+                    <p class="big-stat-label">Indian Fitness Industry CAGR</p>
+                    <p class="text-xs mt-1">Exceptional growth rate indicating massive potential.</p>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="gymAthleisureMarketChart"></canvas>
+            </div>
+            <p class="mt-4 text-sm text-center">The increasing adoption of active lifestyles worldwide, coupled with the rising popularity of athleisure wear, underscores the immense potential for brands that blend performance with style. The functional training trend is accelerating, and there is no established global leader in lifting-specific footwear.</p>
+        </section>
+        
+        <section id="key-opportunities" class="section-card">
+            <h2 class="text-2xl font-bold brand-dark-text mb-4 text-center">Untapped Potential: Demographic Shifts & Value Alignment</h2>
+            <p class="text-center mb-6">Emerging trends reveal key areas for growth: the rapidly expanding women's fitness segment and a strong consumer preference for sustainability.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="text-center p-6 rounded-lg diagram-item">
+                    <p class="text-6xl brand-blue">👟</p>
+                    <p class="big-stat-value brand-blue mt-2">5.7%</p>
+                    <p class="big-stat-label">Women's Athletic Footwear CAGR (APAC)</p>
+                    <p class="text-xs mt-1">Reflecting increasing female participation in fitness.</p>
+                </div>
+                <div class="text-center p-6 rounded-lg diagram-item">
+                     <p class="text-6xl brand-green">🌿</p>
+                    <p class="text-2xl font-semibold brand-green mt-2">Sustainability Matters</p>
+                    <p class="big-stat-label mt-1">Eco-friendly materials are the fastest-growing segment in India's athletic footwear.</p>
+                    <p class="text-xs mt-1">Consumers increasingly value ethical and sustainable production.</p>
+                </div>
+            </div>
+            <p class="mt-6 text-sm text-center">Brands that authentically address these evolving consumer priorities—catering to diverse demographics and championing sustainable practices—are poised for greater resonance and market success.</p>
+        </section>
+
+        <section id="competitive-landscape" class="section-card">
+            <h2 class="text-2xl font-bold brand-dark-text mb-4 text-center">Navigating the Arena: Competitive Landscape Overview</h2>
+            <p class="text-center mb-6">The global fitness footwear market is dominated by established international giants, yet there's ample room for specialized players who can carve out a distinct niche.</p>
+            <div class="chart-container" style="max-height: 300px;">
+                <canvas id="majorPlayersMarketShareChart"></canvas>
+            </div>
+            <p class="mt-4 text-sm text-center">While major brands like Nike and Adidas hold significant market share, their broad focus can leave specific needs of dedicated athletes, particularly in strength training, underserved. This creates an opening for focused brands like Stabl. Emerging Indian brands such as Pro Wolf, RXN, and Dapp also highlight the domestic appetite for specialized gear.</p>
+        </section>
+
+        <section id="top-competitors-growth" class="section-card">
+            <h2 class="text-2xl font-bold brand-dark-text mb-4 text-center">Top Competitors in Specialized Footwear: Market Influence</h2>
+            <p class="text-center mb-6">While specific growth rates for individual specialized footwear lines are often proprietary, we can assess the market influence of key competitors based on their extensive product offerings and established brand presence in the strength training and CrossFit segments.</p>
+            <div class="chart-container">
+                <canvas id="competitorInfluenceChart"></canvas>
+            </div>
+            <p class="mt-4 text-sm text-center">This chart reflects the relative market influence of top brands in the specialized fitness footwear space, considering their product breadth, innovation, and brand recognition among serious lifters and CrossFit athletes. Stabl aims to disrupt this landscape by offering a highly specialized and uniquely beneficial product.</p>
+        </section>
+
+        <section id="stabl-advantage" class="section-card">
+            <h2 class="text-2xl font-bold brand-dark-text mb-4 text-center">Stabl's Strategic Play: The Performance & Grounding Advantage</h2>
+            <p class="text-center mb-6">Stabl aims to capture the dedicated strength training market by offering purpose-built footwear that combines precision biomechanics with the unique benefits of "Grounding" technology.</p>
+            
+            <div class="my-6">
+                <h3 class="text-xl font-semibold brand-dark-text mb-3 text-center">Engineered for Strength: Core Biomechanical Features</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+                    <div class="p-4 rounded-lg diagram-item">
+                        <p class="text-4xl">🏋️</p>
+                        <h4 class="font-semibold mt-2">Raised Heel</h4>
+                        <p class="text-xs mt-1">Improves ankle mobility for deeper squats & optimal form.</p>
+                    </div>
+                    <div class="p-4 rounded-lg diagram-item">
+                        <p class="text-4xl">🔩</p>
+                        <h4 class="font-semibold mt-2">Flat, Firm Sole</h4>
+                        <p class="text-xs mt-1">Maximizes stability & power transfer for heavy lifts.</p>
+                    </div>
+                    <div class="p-4 rounded-lg diagram-item">
+                        <p class="text-4xl">🛡️</p>
+                        <h4 class="font-semibold mt-2">Ankle Support</h4>
+                        <p class="text-xs mt-1">Ensures balance and prevents injury during dynamic movements.</p>
+                    </div>
+                    <div class="p-4 rounded-lg diagram-item">
+                        <p class="text-4xl">👣</p>
+                        <h4 class="font-semibold mt-2">Wide Toe Box</h4>
+                        <p class="text-xs mt-1">Allows natural toe splay for enhanced ground connection.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="my-6">
+                <h3 class="text-xl font-semibold brand-dark-text mb-3 text-center">The "Grounding" Edge: Holistic Athlete Support</h3>
+                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center">
+                    <div class="p-4 rounded-lg diagram-item">
+                        <p class="text-4xl">⚡</p>
+                        <h4 class="font-semibold mt-2">Enhanced Energy</h4>
+                        <p class="text-xs mt-1">Boosts vitality and focus for peak performance.</p>
+                    </div>
+                    <div class="p-4 rounded-lg diagram-item">
+                        <p class="text-4xl">🧠</p>
+                        <h4 class="font-semibold mt-2">Improved Proprioception</h4>
+                        <p class="text-xs mt-1">Enhances body awareness for better coordination & balance.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-4 text-sm text-center">By addressing both in-gym performance and overall athlete well-being through innovative design, Stabl offers a comprehensive solution for serious lifters.</p>
+        </section>
+
+        <section id="stabl-vision" class="section-card">
+            <h2 class="text-2xl font-bold brand-dark-text mb-4 text-center">Stabl's Vision: Elevating Indian Strength Athletes on the Global Stage</h2>
+            <p class="text-center mb-6">Just as cleats are purpose-built for football, **STABL's shall be purpose-built for gym training.** We are not just creating footwear; we are forging the new standard for strength athletes, empowering them to achieve greatness.</p>
+            
+            <div class="my-6">
+                <h3 class="text-xl font-semibold brand-dark-text mb-3 text-center">Designing for Elite Performance</h3>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center p-4 rounded-lg diagram-item">
+                    <p class="text-6xl">📐</p>
+                    <div class="text-left">
+                        <h4 class="font-semibold mt-2 text-lg">Precision Engineering for Champions</h4>
+                        <p class="text-sm mt-1">Stabl will collaborate directly with top Indian Olympic weightlifters and powerlifters to design and develop elite-level footwear. This iterative process will integrate their invaluable feedback, ensuring every aspect—from heel height and sole rigidity to ankle support and toe box design—is optimized for peak performance in competitive environments. We aim to create shoes that are an extension of the athlete's body, providing an unparalleled foundation for record-breaking lifts.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="my-6">
+                <h3 class="text-xl font-semibold brand-dark-text mb-3 text-center">Sponsorship & Support Programs</h3>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center p-4 rounded-lg diagram-item">
+                    <p class="text-6xl">🤝</p>
+                    <div class="text-left">
+                        <h4 class="font-semibold mt-2 text-lg">Investing in India's Strength Future</h4>
+                        <p class="text-sm mt-1">Stabl is committed to identifying and sponsoring promising Indian weightlifters and powerlifters. Our sponsorship programs will go beyond providing just footwear; they will encompass financial support, access to specialized training resources, and mentorship. By alleviating financial burdens and providing essential gear, we enable these athletes to focus entirely on their training and competitive aspirations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="my-6">
+                <h3 class="text-xl font-semibold brand-dark-text mb-3 text-center">Global Stage Representation</h3>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center p-4 rounded-lg diagram-item">
+                    <p class="text-6xl">🌍</p>
+                    <div class="text-left">
+                        <h4 class="font-semibold mt-2 text-lg">Showcasing Indian Talent Worldwide</h4>
+                        <p class="text-sm mt-1">Stabl will actively support our sponsored athletes on the international stage. This includes facilitating travel to major competitions, providing essential logistical support, and amplifying their achievements through global marketing campaigns. Our goal is to not only equip them with the best footwear but also to elevate their profiles, showcasing Indian strength and talent to a worldwide audience, making Stabl synonymous with elite performance in lifting sports globally.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="mt-4 text-sm text-center">Stabl's commitment extends beyond product innovation to fostering a new generation of Indian strength athletes, building a legacy of excellence on the world stage.</p>
+        </section>
+        
+    </main>
+
+    <footer class="text-center py-8 px-4 bg-brand-dark-header text-white">
+        <p class="text-sm">&copy; 2025 Stabl. All insights based on market research data.</p>
+        <p class="text-xs mt-1">This infographic is for illustrative purposes and informed by the "Fortifying the Stabl Pitch Deck" report.</p>
+    </footer>
+
+    <script>
+        const brandColors = {
+            coral: '#FF6B6B',
+            yellow: '#FFD166',
+            green: '#06D6A0',
+            blue: '#118AB2',
+            darkText: '#E2E8F0', /* Lighter color for text on dark background */
+            darkGrayChartSlice: '#4A5568' /* Darker gray for chart slice */
+        };
+
+        function wrapText(text, maxWidth = 16) {
+            if (typeof text !== 'string' || text.length <= maxWidth) {
+                return text;
+            }
+            const words = text.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + words[i].length + 1 <= maxWidth) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        const defaultChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: brandColors.darkText, /* Use lighter color for legend labels */
+                        font: { size: 10 }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            }
+                            return label;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { color: brandColors.darkText, font: { size: 10 } }, /* Use lighter color for y-axis ticks */
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' } /* Lighter grid lines for dark theme */
+                },
+                x: {
+                    ticks: { color: brandColors.darkText, font: { size: 10 } }, /* Use lighter color for x-axis ticks */
+                    grid: { display: false }
+                }
+            }
+        };
+
+        const globalFootwearMarketCtx = document.getElementById('globalFootwearMarketChart').getContext('2d');
+        new Chart(globalFootwearMarketCtx, {
+            type: 'line',
+            data: {
+                labels: ['2024', '2030'],
+                datasets: [{
+                    label: 'Global Footwear Market Value (USD Billion)',
+                    data: [404.61, 570.98],
+                    borderColor: brandColors.coral,
+                    backgroundColor: 'rgba(255, 107, 107, 0.2)',
+                    fill: true,
+                    tension: 0.1
+                }]
+            },
+            options: defaultChartOptions
+        });
+
+        const indiaAthleticMarketCtx = document.getElementById('indiaAthleticMarketChart').getContext('2d');
+        new Chart(indiaAthleticMarketCtx, {
+            type: 'line',
+            data: {
+                labels: ['2022', '2030'],
+                datasets: [{
+                    label: 'Indian Athletic Footwear Market (USD Billion)',
+                    data: [6.879, 11.342],
+                    borderColor: brandColors.green,
+                    backgroundColor: 'rgba(6, 214, 160, 0.2)',
+                    fill: true,
+                    tension: 0.1
+                }]
+            },
+            options: defaultChartOptions
+        });
+
+        const specializedSegmentsCAGRCtx = document.getElementById('specializedSegmentsCAGRChart').getContext('2d');
+        new Chart(specializedSegmentsCAGRCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    wrapText('Weightlifting Shoes'), 
+                    wrapText('Training Shoes'), 
+                    wrapText('Cross-Training Shoes'), 
+                    wrapText('Global Footwear (Overall)'), 
+                    wrapText('India Athletic (Overall)')
+                ],
+                datasets: [{
+                    label: 'Compound Annual Growth Rate (CAGR %)',
+                    data: [8.0, 7.0, 6.94, 5.9, 6.4],
+                    backgroundColor: [
+                        brandColors.coral,
+                        brandColors.yellow,
+                        brandColors.green,
+                        brandColors.blue,
+                        brandColors.darkGrayChartSlice 
+                    ],
+                    borderColor: [
+                        brandColors.coral,
+                        brandColors.yellow,
+                        brandColors.green,
+                        brandColors.blue,
+                        brandColors.darkGrayChartSlice 
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: { 
+                ...defaultChartOptions, 
+                indexAxis: 'y', 
+                scales: {
+                    x: { /* This is the value axis for horizontal bars */
+                        beginAtZero: true, 
+                        ticks: { color: brandColors.darkText, font: { size: 10 } }, 
+                        grid: { color: 'rgba(255, 255, 255, 0.1)', display:true } 
+                    }, 
+                    y: { /* This is the category axis for horizontal bars */
+                        ticks: { color: brandColors.darkText, font: { size: 10 } }, 
+                        grid: {display:false}
+                    } 
+                } 
+            }
+        });
+
+        const gymAthleisureMarketCtx = document.getElementById('gymAthleisureMarketChart').getContext('2d');
+        new Chart(gymAthleisureMarketCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    wrapText('Global Athleisure Market (2030)'),
+                    wrapText('Global Gym Shoes Market CAGR'),
+                    wrapText('Global CrossFit Market CAGR')
+                ],
+                datasets: [{
+                    label: 'Market Size / CAGR',
+                    data: [660, 5.5, 7.0], /* $660B, 5.5% CAGR, 7.0% CAGR */
+                    backgroundColor: [
+                        brandColors.yellow,
+                        brandColors.green,
+                        brandColors.blue
+                    ],
+                    borderColor: [
+                        brandColors.yellow,
+                        brandColors.green,
+                        brandColors.blue
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: { 
+                ...defaultChartOptions, 
+                indexAxis: 'y', 
+                scales: {
+                    x: { /* This is the value axis for horizontal bars */
+                        beginAtZero: true, 
+                        ticks: { color: brandColors.darkText, font: { size: 10 } }, 
+                        grid: { color: 'rgba(255, 255, 255, 0.1)', display:true } 
+                    }, 
+                    y: { /* This is the category axis for horizontal bars */
+                        ticks: { color: brandColors.darkText, font: { size: 10 } }, 
+                        grid: {display:false}
+                    } 
+                } 
+            }
+        });
+        
+        const majorPlayersMarketShareCtx = document.getElementById('majorPlayersMarketShareChart').getContext('2d');
+        new Chart(majorPlayersMarketShareCtx, {
+            type: 'doughnut',
+            data: {
+                labels: [wrapText('Major International Brands (Nike, Adidas, etc.)'), wrapText('Other Brands & Niche Players')],
+                datasets: [{
+                    label: 'Market Share in Training Shoes',
+                    data: [60, 40],
+                    backgroundColor: [
+                        brandColors.blue,
+                        brandColors.darkGrayChartSlice 
+                    ],
+                    borderColor: [
+                        brandColors.blue,
+                        brandColors.darkText 
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: brandColors.darkText, font: {size: 10} } }, 
+                    tooltip: defaultChartOptions.plugins.tooltip
+                }
+            }
+        });
+
+        const competitorInfluenceCtx = document.getElementById('competitorInfluenceChart').getContext('2d');
+        new Chart(competitorInfluenceCtx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    wrapText('Nike'), 
+                    wrapText('Adidas'), 
+                    wrapText('Reebok'), 
+                    wrapText('Puma'), 
+                    wrapText('TYR'), 
+                    wrapText('Sabo'), 
+                    wrapText('Inov-8')
+                ],
+                datasets: [{
+                    label: 'Market Influence Score (1-5)',
+                    data: [5, 5, 4, 3, 3, 3, 3], /* Qualitative score based on product offerings and brand presence */
+                    backgroundColor: [
+                        brandColors.coral,
+                        brandColors.yellow,
+                        brandColors.green,
+                        brandColors.blue,
+                        brandColors.darkGrayChartSlice,
+                        brandColors.coral,
+                        brandColors.yellow
+                    ],
+                    borderColor: [
+                        brandColors.coral,
+                        brandColors.yellow,
+                        brandColors.green,
+                        brandColors.blue,
+                        brandColors.darkGrayChartSlice,
+                        brandColors.coral,
+                        brandColors.yellow
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: { 
+                ...defaultChartOptions, 
+                indexAxis: 'y', 
+                scales: {
+                    x: { /* This is the value axis for horizontal bars */
+                        beginAtZero: true, 
+                        ticks: { color: brandColors.darkText, font: { size: 10 } }, 
+                        grid: { color: 'rgba(255, 255, 255, 0.1)', display:true },
+                        max: 5, 
+                        stepSize: 1 
+                    }, 
+                    y: { /* This is the category axis for horizontal bars */
+                        ticks: { color: brandColors.darkText, font: { size: 10 } }, 
+                        grid: {display:false}
+                    } 
+                } 
+            }
+        });
+    </script>
+</body>
+</html>
